@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MatrixTrap - Message Encryption Tool</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MatrixTrap Message Encryption</h1>
+            <p class="subtitle">Educational Asymmetric Cryptography Tool</p>
+            <div class="warning">
+                <strong>⚠️ Warning:</strong> This is for educational purposes only.
+                Do not use for real security needs. Use established algorithms like RSA or ECDSA in production.
+            </div>
+        </header>
+
+        <main>
+            <!-- Key Management Section -->
+            <section class="card">
+                <h2>Key Management</h2>
+                <div class="key-controls">
+                    <button id="generateKeysBtn" class="btn btn-primary">Generate New Keypair</button>
+                    <div id="keyStatus" class="status-message"></div>
+                </div>
+
+                <div class="key-display">
+                    <div class="key-section">
+                        <h3>Public Key</h3>
+                        <textarea id="publicKeyDisplay" readonly placeholder="Generate or paste a public key..."></textarea>
+                        <div class="button-group">
+                            <button id="copyPublicKeyBtn" class="btn btn-secondary">Copy Public Key</button>
+                            <button id="loadPublicKeyBtn" class="btn btn-secondary">Load Public Key</button>
+                        </div>
+                    </div>
+
+                    <div class="key-section">
+                        <h3>Private Key</h3>
+                        <textarea id="privateKeyDisplay" readonly placeholder="Generate or paste a private key..."></textarea>
+                        <div class="button-group">
+                            <button id="copyPrivateKeyBtn" class="btn btn-secondary">Copy Private Key</button>
+                            <button id="loadPrivateKeyBtn" class="btn btn-secondary">Load Private Key</button>
+                            <button id="downloadKeysBtn" class="btn btn-secondary">Download Keys</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Encryption Section -->
+            <section class="card">
+                <h2>Encrypt Message</h2>
+                <div class="form-group">
+                    <label for="plaintextInput">Message to Encrypt:</label>
+                    <textarea id="plaintextInput" rows="6" placeholder="Enter your message here..."></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="encryptBtn" class="btn btn-primary">Encrypt Message</button>
+                    <button id="clearPlaintextBtn" class="btn btn-secondary">Clear</button>
+                </div>
+                <div class="form-group">
+                    <label for="ciphertextOutput">Encrypted Message (Base64):</label>
+                    <textarea id="ciphertextOutput" rows="6" readonly placeholder="Encrypted message will appear here..."></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="copyCiphertextBtn" class="btn btn-secondary">Copy Ciphertext</button>
+                </div>
+                <div id="encryptStatus" class="status-message"></div>
+            </section>
+
+            <!-- Decryption Section -->
+            <section class="card">
+                <h2>Decrypt Message</h2>
+                <div class="form-group">
+                    <label for="ciphertextInput">Encrypted Message (Base64):</label>
+                    <textarea id="ciphertextInput" rows="6" placeholder="Paste encrypted message here..."></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="decryptBtn" class="btn btn-primary">Decrypt Message</button>
+                    <button id="clearCiphertextBtn" class="btn btn-secondary">Clear</button>
+                </div>
+                <div class="form-group">
+                    <label for="plaintextOutput">Decrypted Message:</label>
+                    <textarea id="plaintextOutput" rows="6" readonly placeholder="Decrypted message will appear here..."></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="copyPlaintextBtn" class="btn btn-secondary">Copy Plaintext</button>
+                </div>
+                <div id="decryptStatus" class="status-message"></div>
+            </section>
+
+            <!-- Quick Transfer Section -->
+            <section class="card">
+                <h2>Quick Transfer</h2>
+                <p class="info-text">Quickly move encrypted message from encryption to decryption area:</p>
+                <button id="transferBtn" class="btn btn-primary">Transfer Encrypted Message ↓</button>
+            </section>
+
+            <!-- About Section -->
+            <section class="card info-card">
+                <h2>About MatrixTrap</h2>
+                <p>
+                    MatrixTrap is an educational asymmetric cryptosystem based on matrix operations
+                    over finite fields. It demonstrates key concepts in public-key cryptography:
+                </p>
+                <ul>
+                    <li><strong>Asymmetric Keys:</strong> Public key for encryption, private key for decryption</li>
+                    <li><strong>Trapdoor Function:</strong> Based on the Matrix Decomposition Problem</li>
+                    <li><strong>Semantic Security:</strong> Random blinding prevents pattern analysis</li>
+                </ul>
+                <p class="info-text">
+                    <strong>How to use:</strong>
+                </p>
+                <ol>
+                    <li>Click "Generate New Keypair" to create keys</li>
+                    <li>Share your public key with others (safe to share publicly)</li>
+                    <li>Keep your private key secret (needed for decryption)</li>
+                    <li>Enter a message and click "Encrypt Message"</li>
+                    <li>Share the encrypted message (Base64 encoded)</li>
+                    <li>To decrypt, paste the encrypted message and click "Decrypt Message"</li>
+                </ol>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                MatrixTrap Educational Cryptography Tool |
+                <a href="https://github.com/kuan51/MatrixTrap" target="_blank">GitHub Repository</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="matrixtrap.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
